@@ -12,6 +12,12 @@ image:
 nameOverride: "wechat"
 fullnameOverride: ""
 
+wechat:
+  gitURL: https://github.com/LinuxSuRen/jenkins.wechat
+  gitBranch: master
+  gitHubSecret: secret
+  token: wechat4go
+
 service:
   type: ClusterIP
   port: 18080

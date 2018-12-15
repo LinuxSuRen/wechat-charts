@@ -19,14 +19,21 @@ spec:
         app.kubernetes.io/name: {{ include "..name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      volumes:
+      - configMap:
+          name: wechat-config
+        name: wechat-config
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 18080
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
+          volumeMounts:
+          - mountPath: /config
+            name: wechat-config
           livenessProbe:
             httpGet:
               path: /status
