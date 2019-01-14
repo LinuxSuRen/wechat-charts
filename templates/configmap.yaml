@@ -1,7 +1,8 @@
+{{- $fullName := include "..fullname" . -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: wechat-config
+  name: {{ include "..fullname" . }}
 data:
   wechat.yaml: |-
     token: {{ .Values.wechat.token }}

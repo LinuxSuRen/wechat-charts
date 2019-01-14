@@ -21,7 +21,7 @@ spec:
     spec:
       volumes:
       - configMap:
-          name: wechat-config
+          name: {{ include "..fullname" . }}
         name: wechat-config
       containers:
         - name: {{ .Chart.Name }}

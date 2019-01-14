@@ -29,7 +29,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - wechat.k8s.surenpi.com
+    - jenkins.wechat.k8s.surenpi.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
